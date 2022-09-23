@@ -1,0 +1,39 @@
+localStorage: Data persists even after closing your session
+sessionStorage: You lose your data when your session is over, like when you close the browser on the tab.
+
+// save
+localStorage.setItem('key', 'value')
+// get saved data
+let data = localStorage.getItem('key')
+// remove saved data
+localStorage.removeItem('key')
+// Same for sessionStorage
+
+
+-----------------cookie in JavaScript?--------------------------
+cookie contains the information as a string generally in the form of a name-value pair separated by semi-colons
+
+
+create a cookie is to assign a string value to the document.cookie object
+document.cookie="name=value";  
+Syntax :
+document.cookie = "key1 = value1; key2 = value2; expires = date";
+
+----------------------Cookie Attributes----------------------------
+Attributes	Description
+expires	It maintains the state of a cookie up to the specified date and time.
+max-age	It maintains the state of a cookie up to the specified time. Here, time is given in seconds.
+path	It expands the scope of the cookie to all the pages of a website.
+domain	It is used to specify the domain for which the cookie is valid.
+
+Ex:
+document.cookie="username=Duke Martin;expires=Sun, 20 Aug 2030 12:00:00 UTC";  
+document.cookie="username=Duke Martin;max-age=" + (60 * 60 * 24 * 365) + ";"  
+
+Different ways to delete a Cookie:
+using expire attribute.
+using max-age attribute.
+We can delete a cookie  by using a web browser.
+
+
+

@@ -1,0 +1,110 @@
+JavaScript is an object-based language. Everything is an object in JavaScript.
+JavaScript is template based not class based. Here, we don't create class to get the object. But, we direct create objects.
+objects are a way of storing data. We do so with the help of key-value pairs.
+
+
+--------------ways to create Objects in JavaScript----------------
+By object literal {}
+By creating instance of Object directly (using new keyword)     
+By using an object constructor (using new keyword)  
+ 
+different methods :
+Object.
+using Class.
+create Method.
+Object Literals.
+using Function.
+Object Constructor
+
+---------------By creating instance of Object----------
+example:
+var emp=new Object();  
+emp.id=101;  
+emp.name="Ravi Malik";  
+emp.salary=50000;  
+
+--------------------- By using an Object constructor---------
+ you need to create function with arguments. Each argument value can be assigned in the current object by using this keyword.
+example:
+function ansh(id,name,salary){  
+this.id=id;  
+this.name=name;  
+this.salary=salary;  
+}  
+e=new ansh(103,"Vimal Jaiswal",30000);  
+
+-------------------Define Method------------------------
+example:
+function ansh(id,name,salary){  
+    this.id=id;  
+    this.name=name;  
+    this.salary=salary;  
+  
+    this.changeSalary=changeSalary;  
+    function changeSalary(otherSalary){     
+        this.salary=otherSalary;  
+    }  
+}  
+e=new emp(103,"Sonoo Jaiswal",30000);  
+console.log(e.id,e.name,e.salery)    //103 "Sonoo Jaiswal" 3000
+e.changeSalary(45000);  
+console.log(e.id,e.name,e.salery)    //103 "Sonoo Jaiswal" 4000
+
+----------------------------Object Destructuring-----------------------------------------
+Object destructuring is a new way to extract elements from an object or an array.
+Example:
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard:1
+}
+const {strength:classStrength, benches:classBenches,blackBoard:classBlackBoard} = classDetails;   //object destructuring
+console.log(classStrength); // Outputs 78
+console.log(classBenches); // Outputs 39
+console.log(classBlackBoard); // Outputs 1
+
+----------------Object.assign() Method------------------------------
+Copy properties and value from one object to target object
+Object.assign(target(pelethi koi object jema changes karva hoi), sources(je changes karva hoi te))  
+example1:
+var obj1 = { a: 10, b: 10, c: 10 };
+        var obj2 = { b: 20, c: 20 };
+        var obj3 = { b: 30 };
+        var new_obj = Object.assign({}, obj1, obj2, obj3);
+        console.log(new_obj);  //{ a: 10, b: 30, c: 20 }
+
+example2:
+const object1 = {  
+  a: 1,  
+  b: 2,  
+  c: 3  
+};  
+const object2 = Object.assign({c: 4, d: 5}, object1);  
+  console.log(object2);  
+console.log(object2);  //{ c: 3, d: 5, a: 1, b: 2 }
+
+-------------------Object.defineProperties()------------------------------
+defines new or modifies existing properties directly on an object, and returning the object.
+Syntex: Object.defineProperties(obj, props)  
+example1:
+const object1 = {};  
+Object.defineProperties(object1, {  
+  property1:{  
+value: 44, }  
+ });  
+console.log(object1.property1);  //44
+
+example2:
+const obj = {};  
+Object.defineProperties(obj, {  
+  property1: {  
+    value: 142,  
+    value: 422,  
+    value: 423,  
+    },  
+  property2: {  
+  value: 22,  
+  value: 12,}  
+});  
+console.log(obj.property1,obj.property2);  //423 12
+

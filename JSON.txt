@@ -1,0 +1,27 @@
+JavaScript Object Notation
+It provides a format for storing and transporting data
+
+Points :
+It generates and stores the data from user input.
+It can transport the data from the server to client, client to server, and server to server.
+It can also build and verifying the data.
+
+-----------------------Json.parse()-----------------------------------
+takes a JSON string and transforms it into a JavaScript object.
+
+Example:
+var json = '{ "firstName":"ASHU", "lastName":"BHATI", "studentCode":7 }';  
+var student = JSON.parse(json);  
+// expected output: ASHU BHATI  
+document.write(student.firstName + " " + student.lastName);   
+
+--------------------------JSON.stringify()-------------------------------------------------
+converts a JavaScript value to a JSON string.
+
+Exmple:
+var json = { firstName:"ASHU", lastName:"BHATI", studentCode:7 };  
+var student = JSON.stringify(json);  
+// expected output: {"firstName":"ASHU","lastName":"BHATI","studentCode":7}  
+document.write(student);   
+
+

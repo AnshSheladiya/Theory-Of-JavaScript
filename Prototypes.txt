@@ -1,0 +1,21 @@
+All javascript objects inherit properties from a prototype
+Whenever we create anything (like an object or function) in JavaScript, 
+the JS Engine automatically attaches that thing with some properties and methods.
+All this comes via prototypes.
+whenever a function is created the prototype property is added to that function automatically
+
+
+Ex.
+Date objects inherit properties from the Date prototype
+Math objects inherit properties from the Math prototype
+Array objects inherit properties from the Array prototype.
+On top of the chain is Object.prototype. 
+Every prototype inherits properties and methods from the Object.prototype.
+
+Exmple:
+let arr = ['Rajat', 'Raj']
+console.log(arr.__proto__.forEach) //[Function: forEach]
+console.log(arr.__proto__) // same as Array.prototype
+console.log(arr.__proto__.__proto__) // same as Object.prototype
+console.log(arr.__proto__.__proto__.__proto__) // null
+

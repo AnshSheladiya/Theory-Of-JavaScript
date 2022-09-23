@@ -1,0 +1,83 @@
+----------------Implicit Type Coercion in javascript
+Implicit type coercion in javascript is the automatic conversion of value from one data type to another
+
+--------------------(==)Double-equals does type coercion--------------------------
+Yes,Double-equals does type coercion, where the type of the variables is converted to a common type before checking their values
+
+-----------String coercion--------------------------------------------------
+while using the ‘ + ‘ operator
+
+Example 1:
+var x = 3;
+var y = "3";
+x + y // Returns "33" 
+
+Example 2:
+var x = 24;
+var y = "Hello";
+x + y   // Returns "24Hello"; 
+
+var name = "Vivek";
+var surname = " Bisht";
+name + surname     // Returns "Vivek Bisht" 
+
+Example with (-):
+var x = 3;
+Var y = "3";
+x - y    //Returns 0 since the variable y (string type) is converted to a number type
+
+---------------Boolen coercion--------------------
+false, 0, 0n, -0, “”, null, undefined, and NaN  is not run 
+
+Example:
+var x = 0;
+var y = 23;    
+if(x) { console.log(x) }   // The code inside this block will not run since the value of x is 0(Falsy)   
+if(y) { console.log(y) }    // The code inside this block will run since the value of y is 23 (Truthy)
+
+---------------------Logical operators-------------------
+OR ( | | ) operator - If the first value is truthy, then the first value is returned. Otherwise, always the second value gets returned.
+AND ( && ) operator - If both the values are truthy, always the second value is returned. If the first value is falsy then the first value is returned or if the second value is falsy then the second value is returned.
+
+Example:
+var x = 220;
+var y = "Hello";
+var z = undefined;
+x | | y    // Returns 220 since the first value is truthy      
+x | | z   // Returns 220 since the first value is truthy      
+x && y    // Returns "Hello" since both the values are truthy     
+y && z   // Returns undefined since the second value is falsy
+
+---------------------instance of----------------------
+The instanceof operator checks if an operand is an instance of the object passed on the right or an instance of any of its ancestors
+
+Exmple:
+var names = ["Tom","Anna",2,true]
+console.log(names instanceof String)   //false
+console.log(names instanceof Number)   //false
+console.log(names instanceof Object)   //true
+console.log(names instanceof Array)     //true
+because-names is an array and array is an Object.
+
+
+Exmple:
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+const auto = new Car('Honda', 'Accord', 1998);
+console.log(auto instanceof Car);
+// expected output: true
+console.log(auto instanceof Object);
+// expected output: true
+console.log(auto instanceof String);
+// expected output: false
+
+
+
+
+
+
+
+

@@ -1,0 +1,392 @@
+----------------------array destructuring------------------
+extracting multiple properties from an array by taking the structure and deconstructing it down into its own constituent parts 
+(array ni properties ne lay ne tenu punhnirmaan kare with new element or array sathe)
+
+The Syntax Without Destructuring:
+var [first, second, third] = ["Laide", "Gabriel", "Jets"];
+
+The Syntax with Destructuring:
+var first = "laide",
+    second = "Gabriel",
+    third = "Jets";
+
+Exmple:
+var [first = "Cotlin", second = first] = [];
+console.log(first); //Output: Cotlin
+console.log(second); //Output: Cotlin
+
+var [first = "Cotlin", second = first] = ["Koku"];
+console.log(first); //Output: Koku
+console.log(second); //Output: Koku
+
+var [first = "Cotlin", second = first] = ["Koku", "Lydia"];
+console.log(first); //Output: Koku
+console.log(second); //Output: Lydia
+
+Program:remove the first two elements of an array using array destructuring
+function removeFirstTwo(list) {
+  const [, , ...arr] = list; 
+  return arr;
+} 
+var arrLiteral = [8,9,10,11,12]
+console.log("removeFirstTwo(arrLiteral)")  //[10,11,12]
+
+
+
+FOR MORE YOU KNOW ABOUT Destructuring:
+https://www.freecodecamp.org/news/array-destructuring-in-es6-30e398f21d10/
+
+
+
+
+---------------------concat()------------------------------------------------
+combines two or more arrays and returns a new array
+doesn't make any change in the original array.
+
+syntax:
+array.concat(arr1,arr2,....,arrn)  
+
+Example:
+var arr1=["C","C++","Python"];  
+var arr2=["Java","JavaScript","Android"];  
+var result=arr1.concat(arr2);  
+console.log(result);   //[ 'C', 'C++', 'Python', 'Java', 'JavaScript', 'Android' ]
+
+Exmple:
+const num1 = [[1]];
+const num2 = [2, [3]];
+const numbers = num1.concat(num2);
+console.log(numbers);        // results in [[1], 2, [3]]
+// modify the first element of num1
+num1[0].push(4);
+console.log(numbers);        // results in [[1, 4], 2, [3]]
+
+-------------------------------copyWithin()---------------------------------------
+copies the part of the given array
+with its own elements and returns the modified array
+
+copyWithin() method shallow copies part of an array and returns it without modifying its length.
+
+copyWithin(target(0), start(+1), end(Tej number sudhi))
+
+Exmple:
+const array1 = ['a', 'b', 'c', 'd', 'e'];
+// copy to index 0 the element at index 3
+console.log(array1.copyWithin(0, 3, 5));
+// expected output: Array ["d", "b", "c", "d", "e"]
+// copy to index 1 all elements from index 3 to the end
+console.log(array1.copyWithin(3, 3));
+// expected output: Array ["d", "d", "e", "d", "e"]
+
+Exmple:
+console.log([1, 2, 3, 4, 5].copyWithin(-2));     // [1, 2, 3, 1, 2]
+console.log([1, 2, 3, 4, 5].copyWithin(0, 3));   // [4, 5, 3, 4, 5]
+console.log([1, 2, 3, 4, 5].copyWithin(0, 3, 4));      // [4, 2, 3, 4, 5]
+console.log([1, 2, 3, 4, 5].copyWithin(-2, -3, -1));    // [1, 2, 3, 3, 4]
+
+--------------------------------every()--------------------------------------------------------
+every() method checks  all the given elements in an array are satisfying the provided condition.
+It returns a Boolean value.
+
+array.every(callback(currentvalue,index,arr))
+
+Example:
+const isBelowThreshold = (currentValue) => currentValue < 40;
+const array1 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every(isBelowThreshold));
+// expected output: true
+
+Example:
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+[12, 5, 8, 130, 44].every(isBigEnough);   // false
+[12, 54, 18, 130, 44].every(isBigEnough); // true
+
+
+Exmple:
+[12, 5, 8, 130, 44].every((x) => x >= 10);   // false
+[12, 54, 18, 130, 44].every((x) => x >= 10); // true
+
+--------------------------------------fill()-----------------------------------------------------
+changes all elements in an array to a static value
+from a start index (default 0) to an end index (default array.length). 
+It returns the modified array.
+
+Exmple:
+const array1 = [1, 2, 3, 4];
+// fill with 0 from position 2 until position 4
+console.log(array1.fill(0, 2, 4));    // expected output: [1, 2, 0, 0]
+// fill with 5 from position 1
+console.log(array1.fill(5, 1));       // expected output: [1, 5, 5, 5]
+console.log(array1.fill(6));        // expected output: [6, 6, 6, 6]
+
+Example:
+console.log([1, 2, 3].fill(4));                // [4, 4, 4]
+console.log([1, 2, 3].fill(4, 1));             // [1, 4, 4]
+console.log([1, 2, 3].fill(4, 1, 2));          // [1, 4, 3]
+console.log([1, 2, 3].fill(4, 1, 1));          // [1, 2, 3]
+console.log([1, 2, 3].fill(4, 3, 3));          // [1, 2, 3]
+console.log([1, 2, 3].fill(4, -3, -2));        // [4, 2, 3]
+console.log([1, 2, 3].fill(4, NaN, NaN));      // [1, 2, 3]
+console.log([1, 2, 3].fill(4, 3, 5));          // [1, 2, 3]
+console.log(Array(3).fill(4));                 // [4, 4, 4]
+console.log([].fill.call({ length: 3 }, 4));   // {0: 4, 1: 4, 2: 4, length: 3}
+
+----------------------filter()-------------------------------
+filter() method filter and extract the element of an array that satisfying the provided condition. 
+It doesn't change the original array.
+filter creates a new array with elements that meet the given condition(s).
+
+Exmple:
+var marks=[50,40,45,37,20];  
+function check(value)  
+{  
+  return value>30;    
+}  
+document.writeln(marks.filter(check));  //50,40,45,37
+
+Exmple:
+function test(element, index, array) {  
+  return element>=25;  
+}  
+document.writeln([21,32,21,43].filter(test));  //32,43
+
+Exmple:
+let winners = ["Anna", "Beth", "Cara"]
+let gold = winners.filter((winner, index) => index == 0)
+let silver = winners.filter((winner, index) => index == 1)
+let bronze = winners.filter((winner, index) => index == 2)
+console.log(Gold winner: ${gold}, Silver Winner: ${silver}, Bronze Winner: ${bronze})
+// "Gold winner: Anna, Silver Winner: Beth, Bronze Winner: Cara"
+
+-----------------------filter()------------------------------------------------------
+returns the first element of the given array that satisfies the provided function condition.
+If no values satisfy the testing function, undefined is returned.
+
+Exmple:
+var arr=[5,22,19,25,34];  
+var result=arr.find(x=>x>20);  
+document.writeln(result)   //22
+
+Exmple:
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);
+// expected output: 12
+
+Example:
+const inventory = [
+  {name: 'apples', quantity: 2},
+  {name: 'bananas', quantity: 0},
+  {name: 'cherries', quantity: 5}
+];
+const result = inventory.find(({ name }) => name === 'cherries');
+console.log(result) // { name: 'cherries', quantity: 5 }
+
+---------------------------findIndex()--------------------------------------
+returns the index of first element of the given array that satisfies the provided function condition.
+It returns -1, if no element satisfies the condition.
+
+Exmple:
+var arr=[5,22,19,25,34];  
+var result=arr.findIndex(x=>x>20);  
+document.writeln(result)  //1
+
+Exmple:
+const array1 = [5, 12, 8, 130, 44];
+const isLargeNumber = (element) => element > 13;
+console.log(array1.findIndex(isLargeNumber));
+// expected output: 3
+
+Exmple:
+const fruits = ["apple", "banana", "cantaloupe", "blueberries", "grapefruit"];
+const index = fruits.findIndex((fruit) => fruit === "blueberries");
+console.log(index); // 3
+console.log(fruits[index]); // blueberries
+
+---------------------------
+
+----------------------Map()-------------------------------
+map creates a new copy of the original array.doesn't change the original array
+(har ek element mate specified ek function call karse)
+
+Exmple:
+var arr=[2.1,3.5,4.7];
+var result=arr.map(Math.round);
+document.writeln(result);    //2 3 4
+
+Exmple:
+const map1 = new Map();
+map1.set('a', 1);
+map1.set('b', 2);
+map1.set('c', 3);
+console.log(map1.get('a'));
+// expected output: 1
+map1.set('a', 97);
+console.log(map1.get('a'));
+// expected output: 97
+console.log(map1.size);
+// expected output: 3
+map1.delete('b');
+console.log(map1.size);
+// expected output: 2
+
+Exmple:
+var arr=[2,4,6];  
+var result=arr.map(x=>x*3);  
+document.writeln(result);  //6 12 18
+
+
+----------------------forEach()-------------------------------
+forEach() method is used to invoke the specified function once for each array element.
+very similar to map but map returns a new Array, but forEach doesn't.
+
+Exmple:
+const array1 = ['a', 'b', 'c'];
+array1.forEach(element => console.log(element));
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+
+Exmple:No operation for uninitialized values (sparse arrays)
+const arraySparse = [1, 3, /* empty */, 7];
+let numCallbackRuns = 0;
+arraySparse.forEach((element) => {
+  console.log({ element });
+  numCallbackRuns++;
+});
+console.log({ numCallbackRuns });
+// { element: 1 }
+// { element: 3 }
+// { element: 7 }
+// { numCallbackRuns: 3 }
+
+---------------------------------includes()--------------------------------------------------
+checks whether the given array contains the specified element. 
+It returns true if an array contains the element, otherwise false.
+
+includes(searchElement)
+includes(searchElement, fromIndex)
+
+Example:
+var arr=["AngularJS","Node.js","JQuery"]  
+var result=arr.includes("AngularJS");  
+document.writeln(result);   //true
+
+Exmple:
+var arr=["AngularJS","Node.js","JQuery"]  
+var result=arr.includes("AngularJS",1); //returns false, as "AngularJS" is not present after index 1.  
+document.writeln(result);  //false
+
+Exmple:
+const array1 = [1, 2, 3];
+console.log(array1.includes(2));
+// expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+console.log(pets.includes('cat'));
+// expected output: true
+console.log(pets.includes('at'));
+// expected output: false
+
+[1, 2, 3].includes(2)         // true
+[1, 2, 3].includes(4)         // false
+[1, 2, 3].includes(3, 3)      // false
+[1, 2, 3].includes(3, -1)     // true
+[1, 2, NaN].includes(NaN)     // true
+["1", "2", "3"].includes(3)   // false
+
+-------------------------------------------indexOf()----------------------------------------------------
+search the position of a particular element in a given array.
+This method is case-sensitive.
+return -1 if it is not present.
+
+Exmple:
+var arr=["C","C++","Python","C++","Java"];  
+var result= arr.indexOf("C++");  
+document.writeln(result);  //1
+
+Exmple:
+var arr=["C","C++","Python","C++","Java"];  
+var result= arr.indexOf("C++",2);  
+document.writeln(result);  //3
+
+Exmple:
+const array = [2, 9, 9];
+array.indexOf(2);     // 0
+array.indexOf(7);     // -1
+array.indexOf(9, 2);  // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0
+
+--------------------------------------join()-------------------------------------------
+combines all the elements of an array into a string and return a new string
+
+Example:
+var arr=["AngularJs","Node.js","JQuery"]  
+var result=arr.join()  
+document.write(result);  //AngularJs,Node.js,JQuery
+
+Example:
+const elements = ['Fire', 'Air', 'Water'];
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+
+Example:
+const a = ['Wind', 'Water', 'Fire'];
+a.join();      // 'Wind,Water,Fire'
+a.join(', ');  // 'Wind, Water, Fire'
+a.join(' + '); // 'Wind + Water + Fire'
+a.join('');    // 'WindWaterFire'
+
+----------------------------------------------lastIndexOf()-------------------------------------------
+lastIndexOf() method is used to search the position of a particular element in a given array
+it start searching an element from the last position of an array.
+
+Exmple:
+var arr=["C","C++","Python","C++","Java"];  
+var result= arr.lastIndexOf("C++");  
+document.writeln(result);  //3
+
+Exmple:
+const numbers = [2, 5, 9, 2];
+numbers.lastIndexOf(2);     // 3
+numbers.lastIndexOf(7);     // -1
+numbers.lastIndexOf(2, 3);  // 3
+numbers.lastIndexOf(2, 2);  // 0
+numbers.lastIndexOf(2, -2); // 0
+numbers.lastIndexOf(2, -1); // 3
+
+----------------------------pop()--------------------------------
+removes the last element from the given array
+changes the length of the original array
+
+---------------------------push() ---------------------------------
+adds one or more elements to the end of the given array
+changes the length of the original array.
+
+syntax:array.push(element1,element2....elementn)  
+
+--------------------------------reverse() --------------------------
+reverse() method changes the sequence of elements of the given array and returns the reverse sequence.
+made the changes in the original array.
+
+---------------------------------sort()-----------------------------------
+used to arrange the array elements in some order.
+By default, sort() method follows the ascending order.
+
+Example:
+var arr=["AngularJS","Node.js","JQuery","Bootstrap"]  
+var result=arr.sort();  
+document.writeln(result);  //AngularJS,Bootstrap,JQuery,Node.js
+
+
+
+
+
+

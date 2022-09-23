@@ -1,0 +1,35 @@
+----------------What is javascript----------------------
+---------------Features of JavaScript----------------------
+---------------3 Places to put JavaScript code---------------------
+---------------Advantages of External JavaScript-----------------------
+-------------------Disadvantages of External JavaScript---------------------
+-------------------Types of JavaScript Comments-----------------------------
+-----------------------advantages of JavaScript comments---------------------------------
+---------------------types of scopes in JS---------------------------------
+two types of variables in JavaScript
+------------some rules while declaring a JavaScript variable--------------
+------------globalveriable-------------------------------
+------------JavaScript primitive data types-----------
+---------------JavaScript non-primitive data types----------------
+-------------- types of operators in JavaScript----------------
+---------------If Else-----------------------
+-----------------types of loops in JavaScript.
+----------------------while Loop---------------------
+----------------------forloop----------------------------
+---------------------NaN------------------
+--------------------------type of errors-----------------------------------------
+--------------------------Error Object-----------------------------------------------
+--------------------------Exception Handling Statements-----------------------------
+------------------------------Rest parameter ( … )--------------------------------------------
+------------------------------Spread operator (…)--------------------------------------------
+------------------------differences between rest parameter and spread operator--------------------------
+-----------------the nullish coalescing operator in JavaScript--------------------------------
+Throw Statement
+-----------------------try…catch--------------------------------------------------------
+try…catch…finally statement
+-----------------------------------------Temporal Dead Zone------------------------------------------------
+JavaScript function Statements
+--------------Advantage of JavaScript function
+---------------------- What is Callback--------------------------------
+
+

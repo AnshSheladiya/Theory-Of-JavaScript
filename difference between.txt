@@ -1,0 +1,43 @@
+--------------------VAR VS LET------------------------------
+LET                                                  VAR
+let is block-scoped.	                             var is function scoped.
+let does not allow to redeclare variables.	         var allows to redeclare variables.
+let Doesn't Allow Hoisting                              Allow Hoisting
+in EC6                                                      From the very beginning, the 'var' keyword was used in js
+
+LET                                                         const
+blocked scoped                                              blocked scoped
+can be redeclare within in scope                            can not be redeclare
+can be updated                                                  can be not updated
+can be declared Without intialized                          can not be declared Without intialized
+
+
+--------------------- difference between null & undefined-----------------------
+Undefined means a variable has been declared but has not yet been assigned a value. 
+On the other hand, null is an assignment value. It can be assigned to a variable as a representation of no value. 
+
+undefined and null are two distinct types: undefined is a type itself (undefined) while null is an object.
+
+------------------------difference between undeclared & undefined----------------------
+Undeclared variables are those that do not exist in a program and are not declared. If the program tries to read the value of an undeclared variable, then a runtime error is encountered. 
+Undefined variables are those that are declared in the program but have not been given any value. If the program tries to read the value of an undefined variable, an undefined value is returned.                             
+
+---------------------------difference between window & document---------------------------
+JavaScript window is a global object which holds variables, functions, history, location.
+he document also comes under the window and can be considered as the property of the window.
+
+-----------------------------between exec () and test () methods -----------------
+test () and exec () are RegExp expression methods used in javascript.
+
+exec () to search a string for a specific pattern, and if it finds it, it'll return the pattern directly; else, it'll return an 'empty' result
+test () to find a string for a specific pattern. It will return the Boolean value 'true' on finding the given text otherwise, it will return 'false'.
+
+
+------------------------differences between rest parameter and spread operator--------------------------
+Rest parameter is used to take a variable number of arguments and turns them into an array
+spread operator takes an array or an object and spreads it
+
+Rest parameter is used in function declaration 
+spread operator is used in function calls
+
+

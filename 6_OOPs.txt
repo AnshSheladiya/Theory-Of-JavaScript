@@ -1,0 +1,202 @@
+-----------------------------------------------class-------------------------------------------
+Introduced in the ES6 version
+
+classes are nothing but syntactic sugars for constructor functions. They provide a new way of declaring constructor functions in javascript.
+
+Classes are in fact "special functions", and just as you can define function expressions and function declarations,
+the class syntax has two components: class expressions and class declarations.
+
+To declare a class, you use the class keyword
+
+JavaScript class contains various class members within a body including methods or constructor
+
+Key points about classes:
+Unlike functions, classes are not hoisted. A class cannot be used before it is declared.
+A class can inherit properties and methods from other classes by using the extend keyword.
+All the syntaxes inside the class must follow the strict mode(‘use strict’) of javascript. An error will be thrown if the strict mode rules are not followed
+
+--------------------------------------------class declarations------------------------------------------
+A class can be defined by using a class declaration.
+A class keyword is used to declare a class with any particular name. 
+According to JavaScript naming conventions, the name of the class always starts with an uppercase letter.
+
+Exmple:
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+--------------------------------------------Class expressions---------------------------------------------------------
+A class expression is another way to define a class. Class expressions can be named or unnamed. 
+Example:
+// unnamed
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// output: "Rectangle"
+
+// named
+Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// output: "Rectangle2"
+
+-------------------------------------Prototype methods Exmple:----------------------------------------
+Ex.
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  // Getter
+  get area() {
+    return this.calcArea();
+  }
+  // Method
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+const square = new Rectangle(10, 10);
+console.log(square.area); // 100
+
+----------------------------------Constructor Method----------------------------------------------------
+A JavaScript constructor method is  used to initialize and create an object.
+
+Points:
+The constructor keyword is used to declare a constructor method.
+The class can contain one constructor method only.
+JavaScript allows us to use parent class constructor through super keyword.
+
+Exmple:
+class Employee {  
+  constructor() {  
+    this.id=101;  
+    this.name = "Martin Roy";  
+  }   
+}  
+var emp = new Employee();  
+document.writeln(emp.id+" "+emp.name);   //101 Martin Roy
+
+Exmple with super():
+class Employee extends CompanyName {  
+  constructor(id,name) {  
+   super();  
+    this.id=id;  
+    this.name=name;  
+  }   
+}     
+var emp = new Employee(1,"John");  
+document.writeln(emp.id+" "+emp.name+" "+emp.company);  
+
+-----------------------------------------JavaScript Encapsulation--------------------------------------------
+JavaScript Encapsulation is a process of binding the data (i.e. variables) with the functions
+It allows us to control the data and validate it.
+
+encapsulation in JavaScript: 
+Use var keyword to make data members private.
+Use setter methods to set the data and getter methods to get that data.
+
+The encapsulation allows us to handle an object using:
+Read/Write - Here, we use setter methods to write the data and getter methods read that data.
+Read Only - In this case, we use getter methods only.
+Write Only - In this case, we use setter methods only.
+
+Example:
+class Student  
+  {  
+    constructor()  
+    {  
+       var name;  
+       var marks;  
+    }  
+        getName()  
+        {  
+          return this.name;  
+        }  
+      setName(name)  
+      {  
+        this.name=name;  
+      }  
+      getMarks()  
+      {  
+        return this.marks;  
+      }  
+    setMarks(marks)  
+    {  
+      this.marks=marks;  
+    }  
+    }  
+    var stud=new Student();  
+     stud.setName("John");  
+     stud.setMarks(80);  
+     document.writeln(stud.getName()+" "+stud.getMarks());    //John 80
+
+-------------------------------------------------JavaScript Inheritance---------------------------------------------------
+The JavaScript inheritance is allows us to create new classes on the basis of already existing classes. 
+It provides flexibility to the child class to reuse the methods and variables of a parent class.
+
+extends keyword is used to create a child class on the basis of a parent class
+It facilitates child class to acquire all the properties and behavior of its parent class.
+
+Example:
+class Moment extends Date {  
+  constructor() {  
+    super();  
+  }}  
+var m=new Moment();  
+document.writeln("Current date:")  
+document.writeln(m.getDate()+"-"+(m.getMonth()+1)+"-"+m.getFullYear());    //Current date: 31-8-2018
+
+Exmple:
+class Bike  
+{  
+  constructor()  
+  {  
+    this.company="Honda";  
+  }  
+}  
+class Vehicle extends Bike {  
+  constructor(name,price) {  
+   super();  
+    this.name=name;  
+    this.price=price;  
+  }   
+}  
+var v = new Vehicle("Shine","70000");  
+document.writeln(v.company+" "+v.name+" "+v.price);  //Honda Shine 70000
+
+---------------------------------------------------------Polymorphism------------------------------------------------
+The polymorphism is concept of an object-oriented Programing that provides a way to perform a single action in different forms. 
+It provides an ability to call the same method on different JavaScript objects. 
+As JavaScript is not a type-safe language, we can pass any type of data members with the methods.
+
+Exmple:
+class A  
+  {  
+     display()  
+    {  
+      document.writeln("A is invoked");  
+    }  
+  }  
+class B extends A  
+  {  
+  }  
+var b=new B();  
+b.display();  
+
+--------------------------------------------------------------Abstraction----------------------------------------
+
+
+
+

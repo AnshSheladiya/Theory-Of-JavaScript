@@ -1,0 +1,192 @@
+We can call JavaScript function many times to reuse the code
+we can use functions to store a piece of code which we can reuse.
+
+--------------Advantage of JavaScript function
+Code reusability: We can call a function several times 
+Less coding:  We don’t need to write many lines of code each time to perform a common task.
+
+-------------JavaScript Function Syntax-----------------
+function functionName([arg1, arg2, ...argN]){  
+ //code to be executed  
+}  
+
+---------------------- What is Callback--------------------------------
+A callback is a function that will be executed after another function gets executed
+
+A callback is JavaScript function passed to some method as an argument or option.
+It is a function that is to be executed after another function has finished executing, hence the name ‘call back‘. In JavaScript, functions are objects. 
+Because of this, functions can take functions as arguments, and can be returned by other functions.
+
+Exmple:
+function multiplyBy2(sum){
+  console.log(sum * 2);
+}
+function operationOnSum(num1,num2,operation){
+  var sum = num1 + num2;
+  operation(sum);
+}
+operationOnSum(5, 5, multiplyBy2); // Outputs 20
+
+-------------------------What is Closures--------------------------------
+Closures are an ability of a function to remember the variables and functions that are declared in its outer scope.
+Closures are created whenever a variable that is defined outside 
+the current scope is accessed from within some inner scope. 
+It gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created. To use a closure, simply define a function inside another function and expose it.
+
+Exmple:
+ function walk (){  
+  var dist = '1780 feet';
+  function fly(){
+    console.log('At '+dist);
+  }
+  return fly;
+}
+var flyFunc = walk(); 
+flyFunc(); //'At 1780 feet'
+
+Exmple:
+var Person = function(pName){
+  var name = pName;
+  this.getName = function(){
+    return name;
+  }
+}
+var person = new Person("Neelesh");
+console.log(person.getName()); //Neelesh
+
+More with Closures:
+https://www.freecodecamp.org/news/closures-in-javascript-explained-with-examples/
+
+----------------------------use of constructor function in javascript-------------------------
+Constructor functions are used to create objects in javascript.
+If we want to create multiple objects having similar properties and methods, constructor functions are used.
+
+Note- The name of a constructor function should start with a capital letter.
+
+Exmple:
+function Person(name,age,gender){
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+var person1 = new Person("Vivek", 76, "male");
+console.log(person1);
+var person2 = new Person("Courtney", 34, "female");
+console.log(person2);
+
+
+
+--------------pass functions as arguments----------------
+Exmple:
+const greet = () =>  {
+    const prefix = 'Mr'
+    return (name) => {
+        console.log(`${prefix} ${name}, welcome!`)
+    }
+}
+console.log(greet()('Jack'))
+
+--------------------------Arrow Function---------------
+introduced in the ES6 version of javascript.
+
+// Arrow Function Expression
+var arrowAdd = (a,b) => a + b;
+
+
+arrow function differ from other functions:
+
+
+-------------IIFE----------------------------------
+Immediately Invoked Function
+runs as soon as it is defined
+A function runs only when it is invoked.
+If we do not invoke the function, the function declaration is returned
+Therefore to invoke the function, we use the second set of parenthesis.
+
+Syntax of IIFE :
+(function(){ 
+  // Do something;
+})();
+
+----------------Higher Order Functions-----------------------
+Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.
+
+Examples1:
+function higherOrder(fn) {
+  fn();
+}
+higherOrder(function() { console.log("Hello world") });  
+
+Examples2:
+function higherOrder2() {
+  return function() {
+    return "Do something";
+  }
+}      
+var x = higherOrder2();
+x()   // Returns "Do something"
+
+-----------------------------------generator functions-------------------------------------
+Introduced in the ES6 version
+They can be stopped midway and then continue from where they had stopped.
+next method returns an object consisting of a value and done properties.
+
+declared with the function* keyword:
+function* genFunc(){
+  // Perform operation
+}
+
+Exmple:
+function* genFunc(){
+  yield 3;
+  yield 4;
+}
+genFunc(); // Returns Object [Generator] {}
+
+generator object consists of a method called next(), 
+this method when called, executes the code until the nearest yield statement, and returns the yield value.
+genFunc().next(); // Returns {value: 3, done:false}
+
+Exmple:
+function* iteratorFunc() {
+    let count = 0;
+    for (let i = 0; i < 2; i++) {
+        count++;
+        yield i;
+    }
+    return count;
+  }
+  
+  let iterator = iteratorFunc();
+  console.log(iterator.next()); // {value:0,done:false}
+  console.log(iterator.next()); // {value:1,done:false}
+  console.log(iterator.next());   //{ value: 2, done: true }
+
+// Generators
+//     - Generators "controls" the "flow" of execution
+//     - Generator functions prefix with "*"
+//     - all the statements in functions prefix with "yield" keyword
+//     - ES9
+//     - Generators returns "cursor" mechanism
+//     - through "cursor", we will control "flow" of execution
+
+Exmple:
+// function *fun_one(){
+//     yield "hello_1";
+//     yield "hello_2";
+//     yield "hello_3";
+//     yield "hello_4";
+//     yield "hello_5";
+// }
+// let cursor = fun_one();
+// console.log( cursor.next() );
+// console.log( cursor.next() );
+// console.log( cursor.next() );
+// console.log( cursor.next() );
+// console.log( cursor.next() );
+// console.log( cursor.next() );
+
+
+
+
+

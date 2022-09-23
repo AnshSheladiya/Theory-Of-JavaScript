@@ -1,0 +1,121 @@
+Map object is used to map keys to values
+It stores each element as key-value pair
+
+Syntax:
+new Map([iterable])  
+iterable - It represents an array and other iterable object whose elements are in the form of key-value pair.
+
+Points :
+A map object cannot contain the duplicate keys.
+A map object can contain the duplicate values.
+The key and value can be of any type (allows both object and primitive values).
+A map object iterates its elements in insertion order.
+
+--------------clear()---------
+clear() method is used to remove all the elements from Map object.
+example:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+document.writeln("Size before invoking clear(): "+ map.size+"<br>");    //3
+map.clear();  
+document.writeln("Size after invoking clear(): "+map.size);  //0
+
+also,delete() method is used to remove all the elements from Map object
+map.delete(element)
+
+----------entries()------------------------------
+entries() method returns an object of new map iterator
+
+Exmple:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+var itr=map.entries();  
+document.writeln(itr.next().value+"<br>");  
+document.writeln(itr.next().value+"<br>");  
+document.writeln(itr.next().value);  
+
+Exmple:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+var itr=map.entries();  
+for(i=0;i<map.size;i++)  
+  {  
+document.writeln(itr.next().value+"<br>");  
+  }  
+
+-------------forEach()---------------
+the specified function once for each key/value pair in the Map object.
+
+example:
+var map = new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+document.writeln("Fetching values :"+"<br>");  
+function display(values)   
+{  
+document.writeln(values+"<br>");  
+}  
+map.forEach(display);  
+
+//jQuery
+AngularJs
+Bootstrap
+
+--------------------get()-----------------------
+returns the value of specified key of an element from a Map object
+example:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+  
+document.writeln(map.get(1)+"<br>");  
+document.writeln(map.get(2)+"<br>");  
+document.writeln(map.get(3));  
+output:
+jQuery
+AngularJS
+Bootstrap
+
+-------------------------has()---------------------------
+has() method indicates whether the Map object contains the specified key
+It returns true if the specified key is present, otherwise false.
+
+example:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap"); 
+document.writeln(map.has(2));    //true
+
+---------------------key()-----------------
+keys() method returns an object of new Map iterator. 
+This object contains the key for each element. It maintains insertion order.
+
+example:
+var map=new Map();  
+map.set(1,"jQuery");  
+map.set(2,"AngularJS");  
+map.set(3,"Bootstrap");  
+var itr=map.keys();  
+document.writeln(itr.next().value+"<br>");  
+document.writeln(itr.next().value+"<br>");  
+document.writeln(itr.next().value);  
+
+output:
+1
+2
+3
+
+
+set()	It adds or updates the key-value pairs to Map object.
+values()	It returns an object of Map iterator that contains the values for each element.
+
+

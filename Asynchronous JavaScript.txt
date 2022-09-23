@@ -1,0 +1,39 @@
+JS is a single-threaded language
+Things happen one at a time. 
+Only after one thing is done can we move to the next thing.
+
+Disadventage-
+creates problems in the real world, especially, when we are working with browsers
+when we need to fetch data from the web - often times we don't know how long will it take to get it. And whether we will be able to get the data successfully.
+
+----------------------Promises-------------------------------
+Promises are used to handle asynchronous operations in javascript.
+The Promise object represents the eventual completion or failure of an asynchronous operation and its resulting value.
+Promise is an object which ensures to produce a single value in the future (when required). 
+
+
+three states:
+Pending: initial state, neither fulfilled nor rejected
+Fulfilled: operation was completed successfully
+Rejected: operation failed
+Settled - promise has been either rejected or fulfilled.
+
+romise constructor which takes in a callback function with two parameters, resolve and reject .
+resolve is a function that will be called when the async operation has been successfully completed.
+reject is a function that will be called, when the async operation fails or if some error occurs.
+
+Exmple:
+const promise = new Promise((resolve, reject) => {
+  let value = true
+  if (value) {
+    resolve('hey value is true')
+  } else {
+    reject('there was an error, value is false')
+  }
+})
+promise
+  .then((x) => {
+    console.log(x)
+  })
+  .catch((err) => console.log(err))
+

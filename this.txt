@@ -1,0 +1,90 @@
+this keyword is a reference variable that refers to the current object
+The value of the “this” keyword will always depend on the object that is invoking the function or global context.
+
+-------------------------------Global context---------------------------------------
+global object. this refers to the window object in web browsers and global object in Node.js applications.
+if you assign a property to the this object in a web browser, JavaScript will add that property to the window object.
+
+Exmple:
+// in web browsers
+this.name = 'Adam';
+console.log(window.name) // will print 'Adam' in your console 
+
+
+console.log(this)      //{}
+
+
+Exmple:
+var address=  
+{  
+company:"Javatpoint",  
+city:"Noida",  
+state:"UP",  
+fullAddress:function()  
+{  
+return this.company+" "+this.city+" "+this.state;  
+}  
+};  
+console.log(address.fullAddress());  
+
+example:Global Context
+var website="Javatpoint";  
+function web()  
+{  
+document.write(this.website);  
+}  
+web();  
+
+----------------------call()  Apply()--------------------------
+call()                     Apply()        
+Runs enstantly              Runs enstantly           
+In parameter-items         In parameter-items
+
+var emp_address = {  
+    fullAddress: function() {  
+        return this.company + " " + this.city+" "+this.state;  
+    }  
+}  
+var address = {  
+    company:"Javatpoint",  
+    city:"Noida",  
+    state:"UP",  
+  
+}  
+  
+console.log(emp_address.fullAddress.call(address));   //Javatpoint Noida UP
+console.log(emp_address.fullAddress.apply(address))     //Javatpoint Noida UP
+
+----------------------Bind() ------------------------------
+introduced in ECMAScript 5
+It creates a new function whose this keyword refers to the provided value, with a given sequence of arguments.
+
+Example:
+let user = { name: 'Bill' };
+function sayHello(greeting){
+  console.log(`${greeting} ${this.name}`)
+}
+let helloBill = sayHello.bind(user);
+helloBill('Hello'); // will print 'Hello Bill'
+
+Exmple:
+var lang="Java";  
+function lang_name(call)  
+{  
+    call();  
+};  
+
+var obj={  
+  lang:"JavaScript",  
+  language:function()  
+  {  
+    console.log(this.lang+ " is a popular programming language.");  
+  }  
+};  
+lang_name(obj.language);   //undefined is a popular programming language.
+lang_name(obj.language.bind(obj));   //JavaScript is a popular programming language
+
+
+
+
+

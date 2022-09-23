@@ -1,0 +1,253 @@
+two types of variables in JavaScript : local variable and global variable
+ You use variables to store values
+
+------------some rules while declaring a JavaScript variable--------------
+start with (a to z or A to Z), underscore( _ ), or dollar( $ ) sign.
+After first letter we can use digits (0 to 9), for example value1.
+JavaScript variables are case sensitive, for example x and X are different variables.
+
+------------globalveriable-------------------------------
+ A variable declared outside the function or declared with window object is known as global variable
+Ex.window.value=90;  
+
+------------JavaScript primitive data types-----------
+String	represents sequence of characters e.g. "hello"
+Number	represents numeric values e.g. 100
+Boolean	represents boolean value either false or true
+Undefined	represents undefined value
+Null	represents null i.e. no value at all
+
+-----------typeof primitive data types------------
+typeof "John Doe" // Returns "string"
+typeof 3.14 // Returns "number"
+typeof true // Returns "boolean"
+typeof 234567890123456789012345678901234567890n // Returns bigint
+typeof undefined // Returns "undefined"
+typeof null // Returns "object" (kind of a bug in JavaScript)
+typeof Symbol('symbol') // Returns Symbol
+
+---------------JavaScript non-primitive data types----------------
+Object	represents instance through which we can access members
+Array	represents group of similar values
+RegExp	represents regular expression
+
+-------------- types of operators in JavaScript----------------
+Arithmetic Operators         +-*/ %(modulas) ++ --
+Comparison (Relational) Operators == === != !== > < >= <=
+Bitwise Operators  
+Logical Operators && || !(not)
+Assignment Operators  = += -= *= /= %=
+Special Operators ?: (ternery)
+
+---------------If Else-----------------------
+condition is true or false
+If Statement
+If else statement
+if else if statement
+
+-----------------types of loops in JavaScript.
+for loop
+while loop
+do-while loop
+for-in loop
+
+----------------------while Loop---------------------
+while loops are used when the “loop body” needs to be repeated an unknown number of times until the condition is met.
+
+----------------------forloop----------------------------
+A for loop  executing the “loop body” a fixed number of times.
+
+
+
+---------------------NaN------------------
+NaN property represents the “Not-a-Number” value. It indicates a value that is not a legal number.
+NaN always compares unequal to any number
+typeof NaN=Number
+
+To check if a value is NaN, we use the isNaN() function,
+isNaN("Hello")  // Returns true
+isNaN(345)   // Returns false
+isNaN('1')  // Returns false, since '1' is converted to Number type which results in 0 ( a number) 
+isNaN(true) // Returns false, since true converted to Number type results in 1 ( a number)
+isNaN(false) // Returns false
+isNaN(undefined) // Returns true
+
+--------------------------type of errors-----------------------------------------
+1.syntax errors
+something incorrect in the syntax of the program
+
+2.Runtime errors
+during the runtime of the program after it's interpreted by the compiler
+
+3.Logical errors 
+ most difficult to find as they are when the syntax is correct but the logic is not
+
+--------------------------Error Object-----------------------------------------------
+name: This is an object property that sets or returns an error name.
+message: This property returns an error message in the string form.
+EvalError: It creates an instance for the error that occurred in the eval(), which is a global function used for evaluating the js string code.
+InternalError: It creates an instance when the js engine throws an internal error.
+RangeError: It creates an instance for the error that occurs when a numeric variable or parameter is out of its valid range.
+ReferenceError: It creates an instance for the error that occurs when an invalid reference is de-referenced.
+SyntaxError: An instance is created for the syntax error that may occur while parsing the eval().
+TypeError: When a variable is not a valid type, an instance is created for such an error.
+URIError: An instance is created for the error that occurs when invalid parameters are passed in encodeURI() or decodeURI().
+
+--------------------------Exception(vandhoo error) Handling Statements-----------------------------
+throw statements
+try…catch statements
+try…catch…finally statements.
+
+------------------------------Rest parameter ( … )--------------------------------------------
+introduced in the ES6 version of javascript.
+It provides an improved way of handling the parameters of a function.
+Using the rest parameter syntax, we can create functions that can take a variable number of arguments.
+Any number of arguments will be converted into an array using the rest parameter.
+It also helps in extracting all or some parts of the arguments.
+Rest parameters can be used by applying three dots (...) before the parameters.
+
+Exmple:
+function extractingArgs(...args){
+  return args[1];
+}
+// extractingArgs(8,9,1); // Returns 9
+
+function addAllArgs(...args){
+  let sumOfArgs = 0;
+  let i = 0;
+  while(i < args.length){
+    sumOfArgs += args[i];
+    i++;
+  }
+  return sumOfArgs;
+}
+addAllArgs(6, 5, 7, 99); // Returns 117
+addAllArgs(1, 3, 4); // Returns 8
+
+Exmple:
+Note- Rest parameter should always be used at the last parameter of a function:
+
+// Incorrect way to use rest parameter
+function randomFunc(a,...args,c){
+//Do something
+}
+
+// Correct way to use rest parameter
+function randomFunc2(a,b,...args){
+//Do something
+}
+
+------------------------------Spread operator (…)--------------------------------------------
+the spread operator is used to spreading an array and object literals
+
+Exmple:
+function addFourNumbers(num1,num2,num3,num4){
+  return num1 + num2 + num3 + num4;
+}
+let fourNumbers = [5, 6, 7, 8];
+addFourNumbers(...fourNumbers);
+// Spreads [5,6,7,8] as 5,6,7,8
+
+Exmple:
+let array1 = [3, 4, 5, 6];
+let clonedArray1 = [...array1];
+// Spreads the array into 3,4,5,6
+console.log(clonedArray1); // Outputs [3,4,5,6]
+
+Exmple:
+let obj1 = {x:'Hello', y:'Bye'};
+let obj2 = {z:'Yes', a:'No'};
+let mergedObj = {...obj1, ...obj2}; // Spreads both the objects and merges it
+console.log(mergedObj);
+// Outputs {x:'Hello', y:'Bye',z:'Yes',a:'No'};
+
+------------------------differences between rest parameter and spread operator--------------------------
+Rest parameter is used to take a variable number of arguments and turns them into an array
+spread operator takes an array or an object and spreads it
+
+Rest parameter is used in function declaration 
+spread operator is used in function calls
+
+-----------------the nullish coalescing operator in JavaScript--------------------------------
+Nullish coalescing is a JavaScript logical operator
+represented by two question marks (??)
+Nullish coalescing is an operator that returns the first “defined” value expression whose value is neither null nor undefined.
+
+Learn with ex:
+a ?? b
+if a is defined, the value of a is returned
+if a isn’t defined, the value of b is returned
+
+Exmple:
+let undefinedUser;
+console.log(undefinedUser ?? 'Anonymous'); // will print 'Anonymous'
+
+let definedUser = 'Ryan';
+console.log(definedUser ?? 'Anonymouse') // will print 'Ryan'
+
+-----------------------try…catch--------------------------------------------------------
+try{} statement: in try code which needs possible error testing is kept within the try block. 
+In case any error occur, it passes to the catch{} block for taking suitable actions and handle the error. 
+Otherwise, it executes the code.
+catch{} statement:This block handles the error
+
+Note: catch {} statement executes only after the execution of the try {} statement. Also, one try block can contain one or more catch blocks.
+
+Throw Statement:
+Throw statements are used for throwing user-defined errors. 
+User can define and throw their own custom errors. 
+When throw statement is executed, the statements present after it will not execute. 
+The control will directly pass to the catch block.
+
+try…catch…throw syntax:
+try{  
+throw exception; // user can define their own exception  
+}  
+catch(error){  
+expression; }  // code for handling exception.  
+
+try…catch…finally statement:
+Finally is an optional block of statements which is executed after the execution of try and catch statements. 
+Finally block does not hold for the exception to be thrown.
+Any exception is thrown or not, finally block code, if present, will definitely execute. 
+It does not care for the output too.
+
+try…catch…finally syntax:
+try{  
+expression;  
+}  
+catch(error){  
+expression;  
+}  
+finally{  
+expression; } //Executable code  
+
+
+-----------------------------------------Temporal Dead Zone------------------------------------------------
+Temporal Dead Zone is a behaviour that variables declared using let and const keywords. 
+It is a behaviour where we try to access a variable before it is initialized
+
+Exmple:
+x = 23; // Gives reference error
+let x;
+function anotherRandomFunc(){
+  message = "Hello"; // Throws a reference error
+
+  let message;
+}
+anotherRandomFunc();
+
+both in the global scope and functional scope, we are trying to access variables that have not been declared yet. 
+This is called the Temporal Dead Zone
+
+
+
+
+
+
+
+
+
+
+
+
